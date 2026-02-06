@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Will you be my Valentine, Aastha?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(1200px 400px at 20% 30%, rgba(255,120,120,0.35), transparent 60%),
+        radial-gradient(1000px 300px at 80% 35%, rgba(255,80,80,0.25), transparent 60%),
+        linear-gradient(to top, #ff7a18, #ff3d54, #7a1fa2);
+      color: white;
+      text-align: center;
+    }
+    .card {
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+      border-radius: 20px;
+      padding: 36px 30px 42px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      max-width: 560px;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 6px;
+    }
+    .name {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ffd1dc, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+    .bouquet {
+      font-size: 3rem;
+      margin: 12px 0 22px;
+    }
+    .buttons {
+      position: relative;
+      height: 80px;
+    }
+    button {
+      padding: 12px 22px;
+      font-size: 1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      position: absolute;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .think {
+      background: #ffffff;
+      color: #333;
+      left: 0;
+    }
+    .yes {
+      background: #ff1744;
+      color: #fff;
+      right: 0;
+    }
+  </style>
+</head>
+<body onclick="startMusic()">
+
+  <!-- Hidden YouTube player -->
+  <iframe id="music"
+    width="0" height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
+
+  <div class="card">
+    <h1>Will you be my Valentine?</h1>
+    <div class="name">Aastha 💖</div>
+    <div class="bouquet">💐🌹🌹🌹</div>
+
+    <div class="buttons">
+      <button class="think" id="thinkBtn">Let me think</button>
+      <button class="yes" onclick="location.href='yes.html'">Yesssssss</button>
+    </div>
+  </div>
+
+<script>
+  // Start music after first interaction (browser-friendly)
+  let started = false;
+  function startMusic() {
+    if (!started) {
+      document.getElementById("music").src =
+        "https://www.youtube.com/embed/EaJ1Tlc31tA?autoplay=1&loop=1&playlist=EaJ1Tlc31tA";
+      started = true;
+    }
+  }
+
+  // Make the "Let me think" button run away
+  const btn = document.getElementById("thinkBtn");
+  btn.addEventListener("mouseover", () => {
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 120 - 60;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+  });
+
+  btn.addEventListener("click", () => {
+    location.href = "think.html";
+  });
+</script>
+
+</body>
+</html>
